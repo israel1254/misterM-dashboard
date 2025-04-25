@@ -78,3 +78,78 @@
     color: rgba(137, 134, 141, 1);
     padding-top: 20px;
 }
+.cardContan{
+    width: 80%;
+    height: auto;
+
+
+}
+.itemicon{
+    display: flex;
+    gap: 15px;
+    
+    height: 30px;
+    padding: 20px;
+    margin-top: 10px;
+    align-items: center;
+}
+.iconDiv{
+    width: 33px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.iconDiv img{
+    width: 20px;
+    height: 20px;
+}
+.itemicon h6{
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+
+}
+.cardContan h1{
+    font-family: sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    padding-left: 0px;
+    padding-top: 8px;
+}
+.cardprogres{
+    padding-top: 5px;
+  padding-left: 18px;
+}
+.bentokit{
+    display: flex;
+    gap: 15px;
+    padding-bottom: 25px;
+    align-items: center;
+}
+.bentokit h5{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+}
+.bentokit h6{
+    font-family: sans-serif;
+    font-size: 12px;
+    color: rgba(137, 134, 141, 1);
+}
+
+.icondev{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.icondev img{
+    width: 29px;
+    height: 29px;
+}
+

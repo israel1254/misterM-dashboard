@@ -1,16 +1,25 @@
 import React, { PureComponent } from 'react'
 import { Divider, Grid } from '@mui/material'
 import Skeleton from '@mui/material/Skeleton'
+import clickIcon from '../../../assets/Clicks.png'
+import salesIcon from '../../../assets/sales.png'
+import userIcon from  '../../../assets/users.png'
+import productIcon from '../../../assets/product.png'
+import prodact2 from '../../../assets/product2.png'
+import prodact3 from '../../../assets/product3.png'
+import prodact4 from '../../../assets/product4.png'
 import DescriptionIcon from '@mui/icons-material/Description';
 import { PageContainer } from '@toolpad/core/PageContainer'
 import Card from '@mui/material/Card'
 import Button from '@mui/material/Button';
-
+import CardProgres from '../../../components/cardprogres/CardProgres';
 import '../../../assets/style/DashboardPage.css' 
 import MixedBarChart from '../../../components/transactionGraph/TransactionGraphBar';
 import TransactionGraphBar from '../../../components/transactionGraph/TransactionGraphBar';
 import PayOutMethod from '../../../components/payoutmethod/PayOutMethod';
+import  FolowersLineChart from '../../../components/folowerslinechart/FolowersLineChart'
 import TransactionAllCards from '../../../components/transactionAllCards/TransactionAllCards';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const DashboardPage = () => {
   return (
     <div className='dashboardpage'>
@@ -55,27 +64,64 @@ const DashboardPage = () => {
                 </Card>
               {/* <Skeleton height={240} variant='rectangular' /> */}
               </Grid>
-              <Grid size={2.8} height={170}>
+              <Grid size={2.8} height={150}>
                     <Card className='allcard'>
-                      
+                      <div className="cardContan"> 
+                        <div className="itemicon"> 
+                          <div className="iconDiv" style={{backgroundColor:'rgba(222, 204, 254, 1)'}}> <img src={userIcon} alt="" /></div>
+                        <h6>Users</h6>
+                        </div>
+                        <div><h1>35k</h1></div>
+                       <div className="cardprogres"> <CardProgres/></div>
+                     
+                      </div>
+                     
                     </Card>
                   {/* <Skeleton height={170} variant='rounded'/> */}
               </Grid>
-              <Grid size={2.8} height={170}>
+              <Grid size={2.8} height={150}>
                   <Card className='allcard'>
-
+                  <div className="cardContan"> 
+                        <div className="itemicon"> 
+                          <div className="iconDiv" style={{backgroundColor:'rgba(215, 255, 195, 1)'}}>
+                          <img src={clickIcon} alt="" />
+                          </div>
+                          <h6>Clicks</h6>
+                        
+                        </div>
+                        <div><h1>1m</h1></div>
+                       <div  className="cardprogres"> <CardProgres/></div>
+                     
+                      </div>
                   </Card> 
                   {/* <Skeleton height={170} variant='rounded'/> */}
               </Grid>
-              <Grid size={2.8} height={170}>
+              <Grid size={2.8} height={150}>
                  <Card className='allcard'>
+                 <div className="cardContan"> 
+                        <div className="itemicon">
+                          <div className="iconDiv" style={{backgroundColor:'rgba(255, 223, 223, 1)'}}><img src={salesIcon} alt="" /></div>
 
+                        <h6>Sales</h6>
+                        </div>
+                        <div><h1>345$</h1></div>
+                       <div  className="cardprogres"> <CardProgres/></div>
+                     
+                      </div>
                  </Card>
                   {/* <Skeleton height={170} variant='rounded'/> */}
               </Grid>
-              <Grid size={2.8} height={170}>
+              <Grid size={2.8} height={150}>
                  <Card className='allcard'>
-                   
+                 <div className="cardContan"> 
+                        <div className="itemicon"> 
+                          <div className="iconDiv" style={{backgroundColor:'rgba(224, 248, 255, 1)'}}><img src={productIcon} alt="" /></div>
+                        <h6>Items</h6>
+                        </div>
+                        <div><h1>68</h1></div>
+                       <div  className="cardprogres"> <CardProgres  /></div>
+                     
+                      </div>
                   </Card>
                   {/* <Skeleton height={170} variant='rounded'/> */}
               </Grid>
@@ -98,8 +144,41 @@ const DashboardPage = () => {
               <Grid size={12} sx={{paddingTop:4}}>
                 <div>
                 <Card sx={{height:321,display:'flex',justifyContent:'center'}}>
-                  <div>
-                    <h4>Earnings by item</h4>
+                  <div style={{width:"80%",height:"auto"}}>
+                    <h4 style={{fontSize:'20px',fontFamily:'sans-serif',fontWeight:'400',paddingTop:'25px',paddingBottom:'26px'}}>Earnings by item</h4>
+                    <div className='bentokit'>
+                      <div className='icondev' style={{backgroundColor:"rgba(222, 204, 254, 1)"}}>
+                        <img src={prodact4} alt="" />
+                      </div>
+                      <div>
+                        <h5>Bento 3D Kit</h5>
+                        <h6>IIIustration</h6>
+                      </div>
+                      <h4><ArrowForwardIosIcon/></h4>
+                        
+                    </div>
+                    <div  className='bentokit'>
+                      <div className='icondev' style={{backgroundColor:"rgba(215, 255, 195, 1)"}}>
+                        <img src={prodact3} alt="" />
+                      </div>
+                      <div>
+                        <h5>Bento 3D Kit</h5>
+                        <h6>Coded Template</h6>
+                      </div>
+                      <h4><ArrowForwardIosIcon /></h4>
+                      
+                    </div>
+                    <div className='bentokit'>
+                      <div className='icondev' style={{backgroundColor:"rgba(255, 223, 223, 1)"}}>
+                        <img src={prodact2} alt="" />
+                      </div>
+                      <div>
+                        <h5>Bento 3D Kit</h5>
+                        <h6>IIIustration</h6>
+                      </div>
+                       <ArrowForwardIosIcon />
+                    
+                    </div>
                   </div>
                 </Card>
                 </div>
@@ -120,7 +199,8 @@ const DashboardPage = () => {
             <Grid size={9} sx={{paddingTop:4}}>
               <div>
                 <Card sx={{height:410,borderRadius:2}}>
-
+                   <FolowersLineChart/>
+                   
                 </Card>
               </div>
               {/* <Skeleton height={410} /> */}

@@ -4,14 +4,14 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 const data = [
   {
     name: '10',
-    uv: 10,
-    pv: '10 to 15',
+    uv: '10 to 15',
+    pv: 10,
     amt: 2400,
   },
   {
     name: '20',
-    uv: '10',
-    pv: '15 to 20',
+    uv: '15 to 20',
+    pv: 20,
     amt: 2210,
   },
   {
@@ -40,9 +40,9 @@ const data = [
   },
   {
     name: '70',
-    // uv: 3490,
-    // pv: '10 to 15',
-    // amt: 2100,
+    uv: 3490,
+    pv: '40 to 45',
+    amt: 2100,
   },
   {
     name: '80',
@@ -94,7 +94,7 @@ const FolowersLineChart = () => {
     <LineChart width={300} height={100} data={data} >
         <CartesianGrid  vertical={false}/>
         <XAxis dataKey="name"  padding={{ left: 30, right: 30 }} tickLine={false} axisLine={false}/>
-        <YAxis  tickCount={6} dataKey='pv' type="category" scale="" axisLine={false} tickLine={false}/>
+        <YAxis  tickCount={6} dataKey='uv' type="category" scale=""   axisLine={false} tickLine={false}/>
       <Line type="monotone" dataKey="pv" dot={false} stroke="#8884d8" strokeWidth={4} />
     </LineChart>
   </ResponsiveContainer>

@@ -14,6 +14,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Card from '@mui/material/Card';
+import ProfileFrame from '../profileframe/ProfileFrame'
 // import ExapndLess from '@mui/icons-material/ExapndLess';
 // import ExapndMore from '@mui/icons-material/ExapndMore';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -27,7 +29,14 @@ import Skeleton from '@mui/material/Skeleton';
 import DashboardPage from '../../pages/home/dashboardPage/DashboardPage';
 import CustomizedInputBase from '../search/SearchCompo';
 import CustomizedMenus from '../menuitems/MenuItem';
-const drawerWidth = 200;
+import LogoIcon from '../../assets/Logo.png'
+import HomeIcon from '@mui/icons-material/Home';
+import DescriptionIcon from '@mui/icons-material/Description';
+import WebStoriesIcon from '@mui/icons-material/WebStories';
+// import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import GppGoodIcon from '@mui/icons-material/GppGood';
+const drawerWidth = 240;
 
 
 export default function SideBar() {
@@ -102,195 +111,245 @@ export default function SideBar() {
             width: drawerWidth,
             boxSizing: 'border-box',
           },
-
+          
         }}
         variant="permanent"
         anchor="left"
+        position='relativ'
       >
         <div className='iconlogo'>
-
+          
+        <div>
+          <img src={LogoIcon} alt='' className="iconlogoimg"/>
         </div>
+        </div>
+        <div className="sidbarlists">
+
         <List>
-          <ListItem style={{flexDirection:'column'}}>
-            <ListItemButton onClick={homeHandleCollapse} style={{gap:'100px'}}>
+          <ListItem style={{flexDirection:'column',padding:'0'}}>
+            <div className='sidebuttondiv'>
+              <div className='butonleftsidediv'></div>
+            <ListItemButton onClick={homeHandleCollapse} style={{width:'100%',justifyContent:'space-between',paddingLeft:'5px',borderRadius:'10px'}}   sx={{
+               ':hover': {
+              bgcolor: 'rgba(222, 204, 254, 1)', // theme.palette.primary.main
+      
+                  },
+                   }}
+               >
+                <div style={{justifyContent:'center',gap:'5px',display:'flex'}}>
+                <HomeIcon/>
               Home
+              </div>
               {homeIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            </div>
+            <List style={{width:'100%'}}>
             <Collapse in={homeIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between',paddingLeft:'30px'}} >
               Dashboard
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton  style={{width:'100%',justifyContent:'space-between',paddingLeft:'30px'}}>
               Analytics
             </ListItemButton>
           </ListItem>
           </Collapse>
             </List>
-            <ListItemButton onClick={pageHandleCollapse} style={{gap:'100px'}}>
+            <div className='sidebuttondiv'>
+            <div className='butonleftsidediv'></div>
+            <ListItemButton onClick={pageHandleCollapse} style={{width:'100%',justifyContent:'space-between',paddingLeft:'5px',borderRadius:'10px'}}  sx={{
+    ':hover': {
+      bgcolor: 'rgba(222, 204, 254, 1)', // theme.palette.primary.main
+      
+    },
+  }}>   
+        <div style={{justifyContent:'center',gap:'5px',display:'flex'}}>
+        <DescriptionIcon/>
               Pages
+              </div>
               {pageIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            </div>
+            <List style={{width:'100%',paddingLeft:'20px'}}>
             <Collapse in={pageIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-            <ListItemButton onClick={profileHandleCollapse} style={{gap:'60px'}}>
+            <ListItemButton onClick={profileHandleCollapse}  style={{width:'100%',justifyContent:'space-between'}} >
               Profile
               {profileIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            <List style={{width:'100%'}}>
               <Collapse in={profileIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-              <ListItemButton>
+              <ListItemButton style={{width:'100%',justifyContent:'space-between',fontSize:'14px'}}>
               Profile overview
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}> 
               Teams
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               All Projects
             </ListItemButton>
               </ListItem>
               </Collapse>
             </List>
-            <ListItemButton onClick={usersHandleCollapse} style={{gap:'60px'}}>
+            <ListItemButton onClick={usersHandleCollapse} style={{width:'100%',justifyContent:'space-between'}} >
               Users
               {usersIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            <List style={{width:'100%'}}>
             <Collapse in={usersIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-              <ListItemButton>
+              <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Reports
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               New User
             </ListItemButton>
           
               </ListItem>
               </Collapse>
             </List>
-            <ListItemButton onClick={accountHandleCollapse} style={{gap:'60px'}}>
+            <ListItemButton onClick={accountHandleCollapse} style={{width:'100%',justifyContent:'space-between'}} >
               Account
               {accountIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            <List style={{width:'100%'}}>
             <Collapse in={accountIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-              <ListItemButton>
+              <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Setting
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Billing
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Invoice
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Security
             </ListItemButton>
           
               </ListItem>
               </Collapse>
             </List>
-            <ListItemButton onClick={projectsHandleCollapse} style={{gap:'60px'}}>
+            <ListItemButton onClick={projectsHandleCollapse} style={{width:'100%',justifyContent:'space-between'}} >
               Projects
               {projectsIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            <List style={{width:'100%'}}>
             <Collapse in={projectsIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-              <ListItemButton>
+              <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               General
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Timeline
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               New Project
             </ListItemButton>
            
               </ListItem>
               </Collapse>
             </List>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Pricing Page
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Charts
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Notifcation
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Chat
             </ListItemButton>
           </ListItem>
           </Collapse>
             </List>
-            <ListItemButton onClick={applicationsHandleCollapse}  style={{gap:'60px'}}>
+            <div className='sidebuttondiv'>
+            <div className='butonleftsidediv'></div>
+            <ListItemButton onClick={applicationsHandleCollapse}  style={{width:'100%',justifyContent:'space-between',paddingLeft:'5px',borderRadius:'10px'}} sx={{
+    ':hover': {
+      bgcolor: 'rgba(222, 204, 254, 1)', // theme.palette.primary.main
+      
+    },
+  }}>    
+             <div style={{justifyContent:'center',gap:'5px',display:'flex'}}>
+              <WebStoriesIcon/>
               Applications
+              </div>
               {applicationsIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            </div>
+            <List style={{width:'100%',paddingLeft:'15px'}}>
             <Collapse in={applicationsIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}> 
               Kanban
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Wizard
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Data tables
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Calender
             </ListItemButton>
           </ListItem>
           </Collapse>
             </List>
-            <ListItemButton onClick={ecommerceHandleCollapse} style={{gap:'20px'}} >
+            <div className='sidebuttondiv'>
+            <div className='butonleftsidediv'></div>
+            <ListItemButton onClick={ecommerceHandleCollapse} style={{width:'100%',justifyContent:'space-between',paddingLeft:'5px',borderRadius:'10px'}}  sx={{
+            ':hover': {
+              bgcolor: 'rgba(222, 204, 254, 1)', // theme.palette.primary.main
+      
+                },
+                 }}>
+                          <div style={{justifyContent:'center',gap:'5px',display:'flex'}}>
+                  <ShoppingBasketIcon/>
               E-commerce
-              {ecommerceIsCollapse ? <KeyboardArrowDownIcon/>:<KeyboardArrowUpIcon/> }
+              </div>
+              {ecommerceIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-           
-            <List>
+           </div>
+            <List style={{width:'100%',paddingLeft:'15px'}}>
             <Collapse in={ecommerceIsCollapse} timeout='auto' unmountOnExit style={{flexDirection:'column'}}>
             <h5>Overview</h5>
           <ListItem  style={{flexDirection:'column'}}>
-          <ListItemButton onClick={prodactsHandleCollapse} style={{gap:'60px'}} >
+          <ListItemButton onClick={prodactsHandleCollapse}  style={{width:'100%',justifyContent:'space-between'}}>
               Prodacts
               {prodactsIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            <List style={{width:'100%'}}>
             <Collapse in={prodactsIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-              <ListItemButton>
+              <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               New Prodacts
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Edit Prodacts
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Prodacts List
             </ListItemButton>
            
               </ListItem>
               </Collapse>
             </List>
-            <ListItemButton onClick={ordersHandleCollapse} style={{gap:'60px'}} >
+            <ListItemButton onClick={ordersHandleCollapse} style={{width:'100%',justifyContent:'space-between'}} >
               Orders
               {ordersIsCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            <List style={{width:'100%'}}>
             <Collapse in={ordersIsCollapse} timeout='auto' unmountOnExit>
           <ListItem style={{flexDirection:'column'}}>
-              <ListItemButton>
+              <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Orders list
             </ListItemButton>
-            <ListItemButton>
+            <ListItemButton style={{width:'100%',justifyContent:'space-between'}}>
               Order Detail
             </ListItemButton>
            
@@ -301,11 +360,22 @@ export default function SideBar() {
           </ListItem>
           </Collapse>
             </List>
-            <ListItemButton onClick={handleCollapse}>
+            <div className='sidebuttondiv'>
+            <div className='butonleftsidediv'></div>
+            <ListItemButton onClick={handleCollapse} style={{width:'100%',justifyContent:'space-between',paddingLeft:'5px',borderRadius:'10px'}}  sx={{
+    ':hover': {
+      bgcolor: 'rgba(222, 204, 254, 1)', // theme.palette.primary.main
+      
+    },
+  }}>         
+             <div style={{justifyContent:'center',gap:'5px',display:'flex'}}>
+              <GppGoodIcon/>
               Authentication
-              {isCollapse ? <KeyboardArrowDownIcon/>:<KeyboardArrowUpIcon/> }
+              </div>
+              {isCollapse ? <KeyboardArrowUpIcon/>:<KeyboardArrowDownIcon/> }
             </ListItemButton>
-            <List>
+            </div>
+            <List style={{width:'100%'}}>
             <Collapse in={isCollapse} timeout='auto' unmountOnExit>
           <ListItem>
             <ListItemButton>
@@ -320,6 +390,10 @@ export default function SideBar() {
           </ListItem>
          
         </List>
+        </div>
+        <div className='sidebarprofaelfram'>
+          <ProfileFrame/>
+        </div>
       </Drawer>
       <Box
         component="main"

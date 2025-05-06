@@ -188,7 +188,7 @@ const DashboardPage = () => {
             <Grid size={12} sx={{paddingTop:4,paddingBottom:10}}>
               <div>
                 <Card sx={{height:260}}>
-
+                 
                 </Card>
               </div>
               {/* <Skeleton height={400} /> */}
@@ -196,9 +196,9 @@ const DashboardPage = () => {
             </Grid>
            
 
-            <Grid size={9} sx={{paddingTop:4}}>
+            <Grid size={9} sx={{paddingTop:2.2}}>
               <div>
-                <Card sx={{height:410,borderRadius:2}}>
+                <Card sx={{height:400,borderRadius:2,display:'flex',justifyContent:'center'}}>
                    <FolowersLineChart/>
                    
                 </Card>

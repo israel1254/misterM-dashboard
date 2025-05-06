@@ -1,105 +1,138 @@
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { Component } from "react";
+import Chart from "react-apexcharts";
 
-const data = [
-  {
-    name: '10',
-    uv: '10 to 15',
-    pv: 10,
-    amt: 2400,
-  },
-  {
-    name: '20',
-    uv: '15 to 20',
-    pv: 20,
-    amt: 2210,
-  },
-  {
-    name: '30',
-    uv: 25,
-    pv: '20 to 25',
-    amt: 2290,
-  },
-  {
-    name: '40',
-    uv: 2780,
-    pv: '25 to 30',
-    amt: 2000,
-  },
-  {
-    name: '50',
-    uv: 1890,
-    pv: '30 to 35',
-    amt: 2181,
-  },
-  {
-    name: '60',
-    uv: 2390,
-    pv: '35 t0 40',
-    amt: 2500,
-  },
-  {
-    name: '70',
-    uv: 3490,
-    pv: '40 to 45',
-    amt: 2100,
-  },
-  {
-    name: '80',
-    // uv: 3490,
-    // pv: 0,
-    // amt: 2100,
-  },
-  {
-    name: '90',
-    // uv: 3490,
-    // pv: 0,
-    // amt: 2100,
-  },
-  {
-    name: '100',
-    // uv: 3490,
-    // pv: 0,
-    // amt: 2100,
-  },
-  {
-    name: '200',
-    // uv: 3490,
-    // pv: 0,
-    // amt: 2100,
-  },
-  {
-    name: '300',
-    // uv: 3490,
-    // pv: 0,
-    // amt: 2100,
-  },
-  {
-    name: '400',
-    // uv: 3490,
-    // pv: 0,
-    // amt: 2100,
-  },
-  {
-    name: '500',
-    // uv: 3490,
-    // pv: 0,
-    // amt: 2100,
-  },
-];
+class FolowersLineChart extends Component {
+  
+  constructor(props) {
+    super(props);
+    const value=[10,13,20,15,30,29,49,23,];
+    const value2=[]
+    this.state = {
+      options: {
+        chart: {
+          id: "basic-bar",
+          dropShadow: {
+            enabled: true,
+            color: '#000',
+            top: 25,
+            left: 7,
+            blur: 10,
+            opacity: 0.3
+          },
+          zoom: {
+            type: 'x',
+            enabled: true,
+            autoScaleYaxis: true
+          },
+          zoom: {
+            enabled: false
+          },
+          toolbar: {
+            show: false
+          }
+        },
+        // scales:{
+        //   y:{
+        //     beginAtzero:true,
+        //     ticks:{
+        //       Callback: function(value,indax,values){
+        //         if(indax === 7){
+        //           return target;
 
-const FolowersLineChart = () => {
-  return (
-    <ResponsiveContainer width="100%" height="100%">
-    <LineChart width={300} height={100} data={data} >
-        <CartesianGrid  vertical={false}/>
-        <XAxis dataKey="name"  padding={{ left: 30, right: 30 }} tickLine={false} axisLine={false}/>
-        <YAxis  tickCount={6} dataKey='uv' type="category" scale=""   axisLine={false} tickLine={false}/>
-      <Line type="monotone" dataKey="pv" dot={false} stroke="#8884d8" strokeWidth={4} />
-    </LineChart>
-  </ResponsiveContainer>
-  )
+        //         }
+        //         else{
+        //           return `${value} and ${datapoints[7]}`
+        //         }
+        //       }
+        //     }
+        //   }
+        // },
+        yaxis: {
+          min:10,
+          max:40,
+          tickAmount: 5,
+          
+          labels: {
+            
+            formatter: function (value) {
+              return value + " " + "to" + " " + (value+5);
+            }
+          },
+        },
+        xaxis: {
+          labels:{
+            style:{
+              fontSize:"14px",
+              padding:"20px"
+            }
+          },
+
+          tickAmount: 16,
+          tickPlacement: 'between',
+          
+          categories: [10, 20, 30, 40, 50, 60, 70, 80, 90,100,200,300,400,500],
+          
+        },
+        title: {
+          text: 'Seles by Age',
+          align: 'left'
+        },
+        
+        legend: {
+          horizontalAlign: 'right',
+          position:'top'
+        },
+        stroke: {
+          curve: 'smooth',
+          // OR provide an array
+          // curve: ['straight', 'smooth', 'monotoneCubic', 'stepline']
+        }
+        
+      },
+      series: [
+        {
+          name: "series-1",
+          data: [0,25,20,35,27,39,25,27,20,21,28,10],
+        },
+       
+      ],
+      
+    };
+  }
+
+  render() {
+    return (
+      <div className="appchart" style={{paddingTop:"20px",width:"100%"}}>
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type="line"
+              width="97%"
+              height="330"
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default FolowersLineChart
+export default FolowersLineChart;
 
+
+
+
+
+// fill: {
+//   colors: [function({ value, seriesIndex, w }) {
+//     if(value < 55) {
+//         return '#7E36AF'
+//     } else if (value >= 55 && value < 80) {
+//         return '#164666'
+//     } else {
+//         return '#D9534F'
+//     }
+//   }]
+// }

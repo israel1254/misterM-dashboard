@@ -43,5 +43,9 @@
 .sidebuttondiv:hover .butonleftsidediv{
     visibility:visible
 }
+.sidenavlist a{
+    text-decoration: none;
+    
+}
 
 /* style={{width:'10px',height:'3em',backgroundColor:'',marginRight:'10px'}} */

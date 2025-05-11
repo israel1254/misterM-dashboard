@@ -7,7 +7,7 @@ import TeamsPage from '../pages/pages/team/TeamsPage';
 
 const MainPage = () => {
   return (
-    <div>
+    <div >
     <BrowserRouter>
      <Routes>
       <Route path='/' element={<DashboardPage/>}/>

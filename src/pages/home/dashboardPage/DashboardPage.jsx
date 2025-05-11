@@ -20,9 +20,10 @@ import PayOutMethod from '../../../components/payoutmethod/PayOutMethod';
 import  FolowersLineChart from '../../../components/folowerslinechart/FolowersLineChart'
 import TransactionAllCards from '../../../components/transactionAllCards/TransactionAllCards';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import BestTime from '../../../components/besttime/BestTime'
 const DashboardPage = () => {
   return (
-    <div className='dashboardpage'>
+    <div className='dashboardpage' >
     
       <PageContainer>
           <Grid container  spacing={1}>
@@ -185,9 +186,10 @@ const DashboardPage = () => {
                
               {/* <Skeleton height={424} /> */}
             </Grid>
-            <Grid size={12} sx={{paddingTop:4,paddingBottom:10}}>
+            <Grid size={12} sx={{paddingTop:4,paddingBottom:10,}}>
               <div>
-                <Card sx={{height:260}}>
+                <Card sx={{height:270,width:"100%",display:'flex',justifyContent:'center',alignItems:'center'}}>
+                  <div style={{width:"100%"}}><BestTime/></div>
                  
                 </Card>
               </div>
@@ -198,7 +200,7 @@ const DashboardPage = () => {
 
             <Grid size={9} sx={{paddingTop:2.2}}>
               <div>
-                <Card sx={{height:400,borderRadius:2,display:'flex',justifyContent:'center'}}>
+                <Card sx={{height:410,borderRadius:2,display:'flex',justifyContent:'center'}}>
                    <FolowersLineChart/>
                    
                 </Card>
